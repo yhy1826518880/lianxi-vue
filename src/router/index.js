@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // @自动自动找到 ./src 目录下的文件
 import Login from '@/components/login/login.vue'
 import Home from '@/components/home/home.vue'
-
+import Users from '@/components/users/users.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -17,7 +17,14 @@ export default new Router({
     {
       name: 'home',
       path: '/home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          name: 'users',
+          path: '/users',
+          component: Users
+        }
+      ]
     },
   ]
 })
